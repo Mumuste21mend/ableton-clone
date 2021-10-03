@@ -13,7 +13,7 @@ body{
     font-weight: normal;
     color: #000;
     background-color: #F3F3F3;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 /* elements */
@@ -30,7 +30,6 @@ ul , ol {
     list-style: none;
     margin: 0;
     padding: 0;
-    font-weight: bold;
 }
 a{
     color:inherit;
@@ -39,7 +38,8 @@ a{
 
 /* classes */
 .main{
-    background-color:#FFF ;
+    background-color:#f2f2f2 ;
+    height: 200vh;
 }
 /* nav  */
     /* nav primary  */
@@ -48,20 +48,9 @@ a{
 .main-nav__primary-wrapper--collapses{
     width: 100%;
 }
-.main-nav__link-list{
-    font-size: .875rem;
-    line-height: 1.5;
-    margin-top: 0 ;
-    margin-bottom: 0 ;
-    padding-left: 0;
-    list-style: none;
-    font-weight: bold;
 
-}
 
-.main-nav__link-list--secondary {
 
-}
 .main-nav__link-list__item{
     display: inline-block;
     vertical-align: middle;
@@ -76,17 +65,21 @@ a{
     vertical-align: middle;
 }
 .main-nav__link-list{
-    font-size: .875rem;
+    font-size: .825rem;
     line-height: 1.5;
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
     list-style: none;
-    font-weight: bold;
 }
-.main-nav__link-list .main-nav__link-list__item:first-child{
+
+.main-nav__link-list--primary .main-nav__link-list__item:first-child{
     margin-left: 0;
     padding-left: 0;
+}
+.main-nav__link-list--secondary .main-nav__link-list__item:first-child{
+    margin-left: 2.125rem;
+    padding-left: .375rem;
 }
 .main-nav__link-list__item {
     padding-left: .375rem;
@@ -134,18 +127,67 @@ a{
     padding-left: 8.75rem;
     padding-right: 2.5rem;
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.5;
     width: 100%;
+}
+.main-nav__link-list--secondary {
+    top: 0px;
+    z-index: 35;
+    display: block;
+    font-size: 1rem;
+    padding-bottom: 1.25rem;
+    margin-top: 1.25rem;
+    width: 100%;
+    transform: translateX(0) translateY(-50%);
+    transition:1.5sec;
+}
+.main-nav__icon{
+    display: inline-block;
+    position: relative;
+    margin-left: .375rem;
+    width: .75rem;
+    height: .75rem;
+}
+.main-nav__icon--expand::before{
+    width: .75rem;
+    height: .125rem;
+}
+.main-nav__icon--collapse::before{
+    width: .5rem;
+    height: .125rem;
+}
+.main-nav__icon--expand::after{
+    width: .125rem;
+    height: .75rem;
+}
+
+.main-nav__icon--collapse::before{
+    content:'';
+    display: block;
+    background-color: currentColor;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.main-nav__icon--expand::before,.main-nav__icon--expand::after{
+    content:'';
+    display: block;
+    background-color: currentColor;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .main-nav{
     position:relative;
     padding-top: 1.25rem;
     padding-bottom: 0;
-    overflow: visible;
     margin: 0 auto;
     top: 0;
     z-index: 35;
+    background-color: #fff;
     
 }
 .main-nav__stretcher{
@@ -153,7 +195,100 @@ a{
     top: 1px;
     height: 1px ;
 }
+.main-nav__separator{
+    position: relative;
+    top: 0%;
+    height: 0.1px;
+    background: #e0e0e0;
+}
+/* main-nav more bar */
+.main-nav__section{
+    margin: .825rem 1rem 0rem 2.5rem ;
+    padding: 1rem 1rem 0 0;
+   
+}
+.main-nav__section-heading{
+    font-weight: bold;
+    font-size:1.75rem ;
+    padding-bottom: .675rem;
+    margin-bottom: 0rem;
+}
+.main-nav__section .main-nav__link-list__item{
+    padding-left: 0;
+    margin-left: 0;
+    padding-right:1.25rem;
+    margin-right: 0.75rem;
+
+}
+.main-nav__link-list__link,.main-nav__col p{
+    font-weight: 400;   
+     font-size: 1.125rem;
+    }
+
+.main-nav__col--25p{
+    width: 25%;
+}
+.main-nav__col h4{
+    font-weight: bold;   
+     font-size: 1.125rem;
+}
+.main-nav__col p{
+   padding-right: 1.25rem;
+   margin-right: .325;
+}
+.main-nav__row{
+    display:flex;
+    align-items:center;
+    align-content: center;
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+
+
+
+
+/* 
+.main-nav__link-list--secondary {
+
+    transition-property: transform;
+
+    transition-duration: 0.25s;
+
+    transition-timing-function: ease-in-out;
+
+    transform: translateY(0) translateX(-50%);
+    position: relative;
+    width: 100%;
+    height: 3.75rem;
+    left: 50%;
+    display: block;
+    max-width: 100rem;
+    padding-top: 1.0625rem;
+    padding-bottom: .9375rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+} */
+
 /* state */
+.is-active{
+    color: #FF764D !important;
+}
+.is-display{
+    display: none;
+}
+ .sticky{
+     position:fixed;
+     padding: 5 100;
+     background: #FF764D;
+     transition:1.5sec;
+ }
 ::selection{
     color: #FFF;
     background: #0000FF;
